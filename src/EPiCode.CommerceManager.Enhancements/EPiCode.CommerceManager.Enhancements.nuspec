@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+    <metadata>
+        <id>EPiCode.CommerceManager.Enhancements</id>
+        <version>$version$</version>
+        <title>EPiServer Commerce Manager Enhancements</title>
+        <authors>The EPiCode Community</authors>
+        <projectUrl>https://github.com/BVNetwork/CommerceManagerEnhancements</projectUrl>
+        <iconUrl>http://www.coderesort.com/favicon.ico</iconUrl>
+        <requireLicenseAcceptance>false</requireLicenseAcceptance>
+        <description>Various enhancments to the Commerce Manager web site, like impoved order search and lists. See https://github.com/BVNetwork/CommerceManagerEnhancements for more documentation.</description>
+        <releaseNotes />
+        <dependencies>
+            <dependency id="EPiServer.CommerceManager" version="8.0.0" />
+        </dependencies>
+    </metadata>
+</package>
