@@ -19,7 +19,7 @@
         <file src="Order\Config\Grids\OrderSearch-List.xml" target="content\Apps\Order\Config\Grids\OrderSearch-List.xml" />
         <file src="Order\Config\View\Navigation\LeftMenu.xml" target="content\Apps\Order\Config\View\Navigation\LeftMenu.xml" />
         <file src="Order\GridTemplates\OrderNoteTemplate.ascx" target="content\Apps\Order\GridTemplates\OrderNoteTemplate.ascx" />
-        <file src="Order\GridTemplates\WearhouseTemplate.ascx" target="content\Apps\Order\GridTemplates\WearhouseTemplate.ascx" />
+        <file src="Order\GridTemplates\WarehouseTemplate.ascx" target="content\Apps\Order\GridTemplates\WarehouseTemplate.ascx" />
         <file src="Order\GridTemplates\ShippingMethodTemplate.ascx" target="content\Apps\Order\GridTemplates\ShippingMethodTemplate.ascx" />
         <file src="Order\Tree\TreeSource.aspx" target="content\Apps\Order\Tree\TreeSource.aspx" />
         <file src="Order\OrderList.ascx" target="content\Apps\Order\OrderList.ascx" />
