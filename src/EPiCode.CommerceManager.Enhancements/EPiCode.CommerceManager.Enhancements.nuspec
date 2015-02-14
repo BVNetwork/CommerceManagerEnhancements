@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
     <metadata>
         <id>EPiCode.CommerceManager.Enhancements</id>
-        <version>$version$</version>
+        <version>0.1.0</version>
         <title>EPiServer Commerce Manager Enhancements</title>
         <authors>The EPiCode Community</authors>
         <projectUrl>https://github.com/BVNetwork/CommerceManagerEnhancements</projectUrl>
@@ -18,7 +18,9 @@
         <file src="Order\Config\Grids\Orders-List.xml" target="content\Apps\Order\Config\Grids\Orders-List.xml" />
         <file src="Order\Config\Grids\OrderSearch-List.xml" target="content\Apps\Order\Config\Grids\OrderSearch-List.xml" />
         <file src="Order\Config\View\Navigation\LeftMenu.xml" target="content\Apps\Order\Config\View\Navigation\LeftMenu.xml" />
-        <file src="Order\GridTemplates\OrderNoteTemplate.aspx" target="content\Apps\Order\GridTemplates\OrderNoteTemplate.aspx" />
+        <file src="Order\GridTemplates\OrderNoteTemplate.ascx" target="content\Apps\Order\GridTemplates\OrderNoteTemplate.ascx" />
+        <file src="Order\GridTemplates\WearhouseTemplate.ascx" target="content\Apps\Order\GridTemplates\WearhouseTemplate.ascx" />
+        <file src="Order\GridTemplates\ShippingMethodTemplate.ascx" target="content\Apps\Order\GridTemplates\ShippingMethodTemplate.ascx" />
         <file src="Order\Tree\TreeSource.aspx" target="content\Apps\Order\Tree\TreeSource.aspx" />
         <file src="Order\OrderList.ascx" target="content\Apps\Order\OrderList.ascx" />
         <file src="Order\OrderSearch.ascx" target="content\Apps\Order\OrderSearch.ascx" />        

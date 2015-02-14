@@ -48,15 +48,33 @@
                             allowSorting="true"
                             dataField="MarketId"
                             headingText="Market"></Column>
-                  <Column width="200"
-                     allowSorting="false"
-                     dataField="OrderNotes"
-                     headingText="Latest Order Note"
-                     Align="Left"
-                     columnType="CustomTemplate">
-                    <Template id="OrderNoteTemplate"
-                              controlUrl="GridTemplates/OrderNoteTemplate.ascx"></Template>
+                    <Column width="200"
+                       allowSorting="false"
+                       dataField="OrderNotes"
+                       headingText="Latest Order Note"
+                       Align="Left"
+                       columnType="CustomTemplate">
+                        <Template id="OrderNoteTemplate"
+                                  controlUrl="GridTemplates/OrderNoteTemplate.ascx"></Template>
+                    </Column>
+                      <Column width="200"
+               allowSorting="false"
+               dataField="Shipping"
+               headingText="Warehouse"
+               Align="Left"
+               columnType="CustomTemplate">
+                          <Template id="WarehouseTemplate"
+                                    controlUrl="GridTemplates/WarehouseTemplate.ascx"></Template>
                   </Column>
+                    <Column width="200"
+           allowSorting="false"
+           dataField="ShippingMethod"
+           headingText="Shipping"
+           Align="Left"
+           columnType="CustomTemplate">
+                        <Template id="ShippingTemplate"
+                                  controlUrl="GridTemplates/ShippingMethodTemplate.ascx"></Template>
+                    </Column>
                 </Columns>
             </add>
         </Grid>
