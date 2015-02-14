@@ -35,6 +35,12 @@
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AjaxControlToolkit">
+      <HintPath>..\lib\AjaxControlToolkit.dll</HintPath>
+    </Reference>
+    <Reference Include="ComponentArt.Web.UI">
+      <HintPath>..\lib\ComponentArt.Web.UI.dll</HintPath>
+    </Reference>
     <Reference Include="EPiServer, Version=7.5.394.2, Culture=neutral, PublicKeyToken=8fe83dea738b45b7, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\References\EPiServer.dll</HintPath>
@@ -60,24 +66,38 @@
       <HintPath>..\References\log4net.dll</HintPath>
     </Reference>
     <Reference Include="Mediachase.BusinessFoundation">
-      <HintPath>..\..\..\CommerceStarterKit\packages\EPiServer.Commerce.Core.8.7.1\lib\net45\Mediachase.BusinessFoundation.dll</HintPath>
+      <HintPath>..\lib\Mediachase.BusinessFoundation.dll</HintPath>
+    </Reference>
+    <Reference Include="Mediachase.BusinessFoundation.Data">
+      <HintPath>..\lib\Mediachase.BusinessFoundation.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="Mediachase.Cms">
+      <HintPath>..\lib\Mediachase.Cms.dll</HintPath>
     </Reference>
     <Reference Include="Mediachase.Commerce">
-      <HintPath>..\..\..\CommerceStarterKit\packages\EPiServer.Commerce.Core.8.7.1\lib\net45\Mediachase.Commerce.dll</HintPath>
+      <HintPath>..\lib\Mediachase.Commerce.dll</HintPath>
     </Reference>
     <Reference Include="Mediachase.ConsoleManager">
-      <HintPath>..\..\..\CommerceStarterKit\packages\EPiServer.CommerceManager.8.7.1\lib\net45\Mediachase.ConsoleManager.dll</HintPath>
+      <HintPath>..\lib\Mediachase.ConsoleManager.dll</HintPath>
     </Reference>
-    <Reference Include="Mediachase.MetaDataPlus, Version=8.7.1.466, Culture=neutral, PublicKeyToken=41d2e7a615ba286c, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\CommerceStarterKit\packages\EPiServer.Commerce.Core.8.7.1\lib\net45\Mediachase.MetaDataPlus.dll</HintPath>
+    <Reference Include="Mediachase.DataProvider">
+      <HintPath>..\lib\Mediachase.DataProvider.dll</HintPath>
+    </Reference>
+    <Reference Include="Mediachase.FileUploader">
+      <HintPath>..\lib\Mediachase.FileUploader.dll</HintPath>
+    </Reference>
+    <Reference Include="Mediachase.MetaDataPlus">
+      <HintPath>..\lib\Mediachase.MetaDataPlus.dll</HintPath>
     </Reference>
     <Reference Include="Mediachase.WebConsoleLib">
-      <HintPath>..\..\..\CommerceStarterKit\packages\EPiServer.Commerce.Core.8.7.1\lib\net45\Mediachase.WebConsoleLib.dll</HintPath>
+      <HintPath>..\lib\Mediachase.WebConsoleLib.dll</HintPath>
     </Reference>
     <Reference Include="Newtonsoft.Json, Version=4.5.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <Private>False</Private>
       <HintPath>C:\EPiServer\OxxCommerceStarterKit\packages\Newtonsoft.Json.4.5.11\lib\net40\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="RssToolkit">
+      <HintPath>..\lib\RssToolkit.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
@@ -105,6 +125,9 @@
       <Private>False</Private>
     </Reference>
     <Reference Include="System.XML" />
+    <Reference Include="Validators">
+      <HintPath>..\lib\Validators.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_GlobalResources\SharedStrings.da.designer.cs" />
@@ -142,6 +165,13 @@
     <Compile Include="Order\MarketTree\TreeSource.aspx.designer.cs">
       <DependentUpon>TreeSource.aspx.cs</DependentUpon>
     </Compile>
+    <Compile Include="Order\Tree\TreeSource.aspx.cs">
+      <DependentUpon>TreeSource.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Order\Tree\TreeSource.aspx.designer.cs">
+      <DependentUpon>TreeSource.aspx.cs</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -154,6 +184,7 @@
     </Content>
     <Content Include="Order\Config\Grids\Orders-List.xml" />
     <Content Include="Order\Config\Grids\OrderSearch-List.xml" />
+    <Content Include="Order\Config\View\Navigation\LeftMenu.xml" />
     <Content Include="Order\GridTemplates\OrderNoteTemplate.ascx">
       <SubType>ASPXCodeBehind</SubType>
     </Content>
@@ -164,6 +195,9 @@
       <SubType>ASPXCodeBehind</SubType>
     </Content>
     <Content Include="Order\MarketTree\TreeSource.aspx">
+      <SubType>ASPXCodeBehind</SubType>
+    </Content>
+    <Content Include="Order\Tree\TreeSource.aspx">
       <SubType>ASPXCodeBehind</SubType>
     </Content>
   </ItemGroup>
