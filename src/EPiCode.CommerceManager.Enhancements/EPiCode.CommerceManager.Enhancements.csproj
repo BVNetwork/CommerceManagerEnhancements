@@ -158,13 +158,6 @@
     <Compile Include="Order\OrderSearch.ascx.designer.cs">
       <DependentUpon>OrderSearch.ascx.cs</DependentUpon>
     </Compile>
-    <Compile Include="Order\MarketTree\TreeSource.aspx.cs">
-      <DependentUpon>TreeSource.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Order\MarketTree\TreeSource.aspx.designer.cs">
-      <DependentUpon>TreeSource.aspx.cs</DependentUpon>
-    </Compile>
     <Compile Include="Order\Tree\TreeSource.aspx.cs">
       <DependentUpon>TreeSource.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -184,7 +177,9 @@
     </Content>
     <Content Include="Order\Config\Grids\Orders-List.xml" />
     <Content Include="Order\Config\Grids\OrderSearch-List.xml" />
-    <Content Include="Order\Config\View\Navigation\LeftMenu.xml" />
+    <Content Include="Order\Config\View\Navigation\LeftMenu.xml">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Order\GridTemplates\OrderNoteTemplate.ascx">
       <SubType>ASPXCodeBehind</SubType>
     </Content>
@@ -192,9 +187,6 @@
       <SubType>ASPXCodeBehind</SubType>
     </Content>
     <Content Include="Order\OrderSearch.ascx">
-      <SubType>ASPXCodeBehind</SubType>
-    </Content>
-    <Content Include="Order\MarketTree\TreeSource.aspx">
       <SubType>ASPXCodeBehind</SubType>
     </Content>
     <Content Include="Order\Tree\TreeSource.aspx">
