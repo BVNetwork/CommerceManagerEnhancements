@@ -1,8 +1,13 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Web;
 using System.Web.UI.WebControls;
+using CommerceManagerEnhancements.Configuration;
+using EPiServer.ServiceLocation;
 using Mediachase.BusinessFoundation;
+using Mediachase.Commerce;
+using Mediachase.Commerce.Markets;
 using Mediachase.Commerce.Orders.DataSources;
 using Mediachase.Commerce.Orders.Search;
 using Mediachase.Web.Console.BaseClasses;
@@ -14,6 +19,13 @@ namespace CommerceManagerEnhancements.Order
 {
     public partial class OrdersList : OrderBaseUserControl
     {
+        private Injected<IMarketService> _marketService;
+
+        protected IMarketService MarketService
+        {
+            get { return _marketService.Service; }
+        }
+
         int _StartRowIndex = 0;
 
         /// <summary>
@@ -30,7 +42,29 @@ namespace CommerceManagerEnhancements.Order
 
         public string MarketFilter
         {
-            get { return Request.QueryString["marketid"]; }
+            get
+            {
+                var useDropdown = MarketFilterConfiguration.UseDropdownMarketFilter();
+
+                var market = "all";
+
+                if (useDropdown)
+                {
+                    HttpCookie cookie = Request.Cookies["SelectedMarket"];
+
+                    if (cookie != null)
+                    {
+                        market = cookie.Value;
+                    }
+                }
+                else
+                {
+                    market = Request.QueryString["marketid"];
+
+                }
+
+                return (market == "all") ? string.Empty : market;
+            }
         }
 
         /// <summary>
@@ -91,6 +125,12 @@ namespace CommerceManagerEnhancements.Order
         /// <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
         protected void Page_Load(object sender, EventArgs e)
         {
+            DockTop.Visible = MarketFilterConfiguration.UseDropdownMarketFilter();
+            if (!DockTop.Visible)
+            {
+                DockTop.DefaultSize = 0;
+            }
+
 			if (!IsPostBack)
 				Page.ClientScript.RegisterStartupScript(this.Page.GetType(), "SetTitleScriptKey", String.Format("CSManagementClient.SetPageTitle('{0}');", GetPageTitle()), true);
 
@@ -102,7 +142,30 @@ namespace CommerceManagerEnhancements.Order
                 }
 
 				InitDataSource(_StartRowIndex, GetMaximumRows(), true, "");
+                InitMarketList();
                 DataBind();
+            }
+        }
+
+        private void InitMarketList()
+        {
+            if (MarketFilterConfiguration.UseDropdownMarketFilter())
+            {
+                var markets = MarketService.GetAllMarkets().ToList();
+                markets.Insert(0, new MarketImpl(new MarketId("all")) {MarketName = "All Markets"});
+                Markets.DataSource = markets;
+
+                Markets.DataValueField = "MarketId";
+                Markets.DataTextField = "MarketName";
+
+                Markets.DataBind();
+
+                var selectedMarket = Request.Cookies["SelectedMarket"];
+
+                if (selectedMarket != null)
+                {
+                    Markets.SelectedValue = selectedMarket.Value;
+                }
             }
         }
 
@@ -268,6 +331,13 @@ namespace CommerceManagerEnhancements.Order
             OrderListDataSource.Options.RecordsToRetrieve = recordsCount;
             OrderListDataSource.Options.StartingRecord = startRowIndex;
             OrderListDataSource.Parameters.OrderByClause = orderByClause;
+        }
+
+        protected void Markets_OnSelectedIndexChanged(object sender, EventArgs e)
+        {
+            Response.Cookies.Add(new HttpCookie("SelectedMarket",Markets.SelectedValue));
+            Response.Redirect(Request.Url.ToString(),true);
+
         }
     }
 }

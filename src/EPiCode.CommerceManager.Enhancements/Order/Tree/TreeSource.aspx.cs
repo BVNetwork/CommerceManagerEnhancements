@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using CommerceManagerEnhancements.Configuration;
 using EPiServer.DataAbstraction;
 using EPiServer.ServiceLocation;
 using Mediachase.BusinessFoundation;
@@ -207,21 +208,26 @@ namespace CommerceManagerEnhancements.Order.Tree
         }
 
         private JsonTreeNode BindMarketsToNode(JsonTreeNode node, IEnumerable<IMarket> markets)
-        {           
+        {
+            if (MarketFilterConfiguration.UseDropdownMarketFilter())
+            {
+                return node;
+            }
 
             List<JsonTreeNode> marketNodes = new List<JsonTreeNode>();
             foreach (IMarket market in markets)
             {
                 var id = node.id + "-market-" + market.MarketId.Value;
                 var filter = node.parameters + string.Format("&marketid={0}", market.MarketId.Value);
-                marketNodes.Add(JsonTreeNode.CreateNode(id, market.MarketName, ModuleName, "Orders-List",filter, true));
+                marketNodes.Add(JsonTreeNode.CreateNode(id, market.MarketName, ModuleName, "Orders-List", filter,
+                    true));
             }
 
             node.children = marketNodes;
 
             node.leaf = false;
 
-            return node;            
+            return node;
         }
 
         /// <summary>

@@ -106,7 +106,7 @@
                         text="{SharedStrings:Delete_Selected}"
                         imageUrl="~/Apps/Shell/styles/Images/toolbar/delete.gif"
                         commandName="cmdOrderDelete"
-                        permissions="order:mng:delete"/>
+                        permissions="order:mng:delete"/>                
             </add>
         </Toolbar>
 

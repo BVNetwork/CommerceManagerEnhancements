@@ -127,6 +127,7 @@
     <Compile Include="App_GlobalResources\SharedStrings.nl.designer.cs" />
     <Compile Include="App_GlobalResources\SharedStrings.no.designer.cs" />
     <Compile Include="App_GlobalResources\SharedStrings.sv.designer.cs" />
+    <Compile Include="Configuration\MarketFilterConfiguration.cs" />
     <Compile Include="Order\GridTemplates\WarehouseTemplate.ascx.cs">
       <DependentUpon>WarehouseTemplate.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
