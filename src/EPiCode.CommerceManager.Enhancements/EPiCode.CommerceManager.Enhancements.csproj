@@ -180,7 +180,9 @@
   <ItemGroup>
     <Content Include="Core\Controls\EcfListViewControl.ascx" />
     <Content Include="Order\Config\Grids\Orders-List.xml" />
-    <Content Include="Order\Config\Grids\OrderSearch-List.xml" />
+    <Content Include="Order\Config\Grids\OrderSearch-List.xml">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Order\Config\View\Navigation\LeftMenu.xml">
       <SubType>Designer</SubType>
     </Content>
@@ -194,7 +196,9 @@
     <Content Include="Order\OrderList.ascx">
       <SubType>ASPXCodeBehind</SubType>
     </Content>
-    <Content Include="Order\OrderSearch.ascx" />
+    <Content Include="Order\OrderSearch.ascx">
+      <SubType>ASPXCodeBehind</SubType>
+    </Content>
     <Content Include="Order\Tree\TreeSource.aspx">
       <SubType>ASPXCodeBehind</SubType>
     </Content>

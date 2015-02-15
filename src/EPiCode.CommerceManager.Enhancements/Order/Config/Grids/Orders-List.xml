@@ -38,7 +38,11 @@
                         <Template id="OrderStatusTemplate"
                                   controlUrl="GridTemplates/OrderStatusTemplate.ascx"></Template>
                     </Column>
-             
+                    <Column width="200"
+                            columnType="DateTime"
+                            allowSorting="true"
+                            dataField="Created"
+                            headingText="Created"></Column>       
                     <Column width="200"
                             columnType="DateTime"
                             allowSorting="false"

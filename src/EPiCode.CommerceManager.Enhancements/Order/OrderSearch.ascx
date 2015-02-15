@@ -17,25 +17,30 @@
              width: 20px;
              height: 26px;
          }
+         tr.padding10 td{
+             padding: 10px;
+             margin: 10px !important;
+             font-weight: bold;
+         }
      </style>
 
 
 
 
-<IbnWebControls:McDock ID="DockTop" runat="server" Anchor="Top" EnableSplitter="False" DefaultSize="75">
+<IbnWebControls:McDock ID="DockTop" runat="server" Anchor="Top" EnableSplitter="False" DefaultSize="130">
     <DockItems>
    
-     <asp:Panel runat="server" ID="pnlMain" DefaultButton="btnSearch" Height="100px" BackColor="#F8F8F8" BorderColor="Gray" BorderWidth="0">
+     <asp:Panel runat="server" ID="pnlMain" DefaultButton="btnSearch" Height="130px" BackColor="#F8F8F8" BorderColor="Gray" BorderWidth="0">
             <div id="DataForm">
                 <table cellpadding="0" style="background-color: #F8F8F8;" cellspacing="0">
-                    <tr>
-                        <th>Filter</th>
-                        <th></th>
-                        <th></th>
-                        <th>Ordre informasjon</th>
-                        <th></th>
-                        <th></th>
-                        <th>Kundeinformasjon</th>
+                    <tr class="auto-style1 padding10">
+                        <td>Order Information</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td>Customer Information</td>
                     </tr>
                     <tr>
 						<td>
