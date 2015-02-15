@@ -161,38 +161,18 @@ namespace CommerceManagerEnhancements.Order.Tree
             var marketList = markets.ToList();
 
             List<JsonTreeNode> nodes = new List<JsonTreeNode>();
-            
-            // PurchaseOrders node
-            
-            var todayNode = JsonTreeNode.CreateNode("PO-TodayOrders", "Today", ModuleName, "Orders-List",
-                "filter=today&class=PurchaseOrder", true);
 
-            todayNode = BindMarketsToNode(todayNode, marketList);
+            List<DateFilterSettings> filterSettings = DateFilterSettings.GetDateFilters(ModuleName, "Orders-List", "PurchaseOrder");
 
-            nodes.Add(todayNode);
+            foreach (var dateFilter in filterSettings)
+            {
+                var filterNode = JsonTreeNode.CreateNode(dateFilter.Id, dateFilter.Title, dateFilter.Module,
+                    dateFilter.List, dateFilter.Parameters, true);                
 
-            var thisweek = JsonTreeNode.CreateNode("PO-WeekOrders", "This Week", ModuleName, "Orders-List",
-                "filter=thisweek&class=PurchaseOrder", true);
+                filterNode = BindMarketsToNode(filterNode, marketList);
 
-            thisweek = BindMarketsToNode(thisweek,marketList);
-
-            nodes.Add(thisweek);
-
-
-            var thismonth = JsonTreeNode.CreateNode("PO-MonthOrders", "This Month", ModuleName, "Orders-List",
-                "filter=thismonth&class=PurchaseOrder", true);
-
-            thismonth = BindMarketsToNode(thismonth, marketList);
-
-            nodes.Add(thismonth);
-
-
-            var all = JsonTreeNode.CreateNode("PO-AllOrders", "All", ModuleName, "Orders-List",
-                "filter=all&class=PurchaseOrder", true);
-
-            all = BindMarketsToNode(all, marketList);
-
-            nodes.Add(all);
+                nodes.Add(filterNode);
+            }
             
             WriteArray(nodes);
         }
@@ -300,5 +280,82 @@ namespace CommerceManagerEnhancements.Order.Tree
             string json = JsonSerializer.Serialize(nodes);
             Response.Write(json);
         }
+    }
+
+    public class DateFilterSettings
+    {
+        public string List { get; set; }
+
+        public string Module { get; set; }
+
+        public string Parameters { get; set; }
+
+        public string Title { get; set; }
+
+        public string Id { get; set; }
+
+        public static List<DateFilterSettings> GetDateFilters(string moduleName, string listName, string className)
+        {
+            var list = new List<DateFilterSettings>();
+
+            list.Add(new DateFilterSettings()
+            {
+                Id = "PO-TodayOrders",
+                Title = "Today",
+                Parameters = string.Format("filter=today&class={0}",className),
+                Module = moduleName,
+                List = listName
+            });
+
+            list.Add(new DateFilterSettings()
+            {
+                Id = "PO-WeekOrders",
+                Title = "This week",
+                Parameters = string.Format("filter=thisweek&class={0}", className),
+                Module = moduleName,
+                List = listName
+            });
+
+            list.Add(new DateFilterSettings()
+            {
+                Id = "PO-Last7Days",
+                Title = "Last 7 days",
+                Parameters = string.Format("filter=last7days&class={0}", className),
+                Module = moduleName,
+                List = listName
+            });
+
+            list.Add(new DateFilterSettings()
+            {
+                Id = "PO-MonthOrders",
+                Title = "This month",
+                Parameters = string.Format("filter=thismonth&class={0}", className),
+                Module = moduleName,
+                List = listName
+            });
+
+            list.Add(new DateFilterSettings()
+            {
+                Id = "PO-Last30Days",
+                Title = "Last 30 days",
+                Parameters = string.Format("filter=last30days&class={0}", className),
+                Module = moduleName,
+                List = listName
+            });
+
+            list.Add(new DateFilterSettings()
+            {
+                Id = "PO-AllOrders",
+                Title = "All",
+                Parameters = string.Format("filter=all&class={0}", className),
+                Module = moduleName,
+                List = listName
+            });
+        
+
+            return list;
+        }
+
+
     }
 }

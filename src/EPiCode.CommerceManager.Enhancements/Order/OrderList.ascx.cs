@@ -195,7 +195,21 @@ namespace CommerceManagerEnhancements.Order
 			DateTime endDate = nowDate;
             bool applyDateFilter = false;
 
-            if (FilterType == "thisweek")
+            if (FilterType == "last7days")
+            {
+                startDate = nowDate.AddDays(-7);
+                endDate = nowDate;
+                applyDateFilter = true;
+            }
+
+            else if (FilterType == "last30days")
+            {
+                startDate = nowDate.AddDays(-30);
+                endDate = nowDate;
+                applyDateFilter = true;
+            }
+
+            else if (FilterType == "thisweek")
             {
 				startDate = ManagementHelper.GetStartOfWeek(nowDate.Date);
 				endDate = nowDate;
@@ -213,13 +227,7 @@ namespace CommerceManagerEnhancements.Order
 				endDate = nowDate;
 				applyDateFilter = true;
             }
-            else
-            {
-                applyDateFilter = false;
-            }
-
-
-
+          
 			if (applyDateFilter)
 			{
 				OrderListDataSource.Parameters.SqlMetaWhereClause = String.Format("META.Modified between '{0}' and '{1}'",

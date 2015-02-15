@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
     <metadata>
         <id>EPiCode.CommerceManager.Enhancements</id>
-        <version>0.1.8</version>
+        <version>$version$</version>
         <title>EPiServer Commerce Manager Enhancements</title>
         <authors>The EPiCode Community</authors>
         <projectUrl>https://github.com/BVNetwork/CommerceManagerEnhancements</projectUrl>
@@ -22,6 +22,6 @@
         <file src="Order\Tree\TreeSource.aspx" target="content\Apps\Order\Tree\TreeSource.aspx" />
         <file src="Order\OrderList.ascx" target="content\Apps\Order\OrderList.ascx" />
         <file src="Order\OrderSearch.ascx" target="content\Apps\Order\OrderSearch.ascx" />
-        <file src="bin\Debug\EPiCode.CommerceManager.Enhancements.dll" target="lib\EPiCode.CommerceManager.Enhancements.dll" />
+        <file src="bin\EPiCode.CommerceManager.Enhancements.dll" target="lib\EPiCode.CommerceManager.Enhancements.dll" />
     </files>
 </package>
