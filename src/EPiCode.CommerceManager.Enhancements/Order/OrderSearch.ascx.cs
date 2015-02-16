@@ -280,11 +280,8 @@ namespace CommerceManagerEnhancements.Order
          
 
             if (applyDateFilter)
-            {
-                var metaField = SearchOnCreatedDate.Checked ? "META.Created" : "META.Modified";
-
-                OrderListDataSource.Parameters.SqlMetaWhereClause = String.Format("{0} between '{1}' and '{2}'",
-                                                                                  metaField,
+            {                
+                OrderListDataSource.Parameters.SqlMetaWhereClause = String.Format("(META.Created between '{0}' and '{1}') OR (META.Modified between '{0}' and '{1}')",                                                                                  
                                                                                   startDate.ToUniversalTime().ToString("s"), 
                                                                                   endDate.ToUniversalTime().ToString("s"));
                 OrderListDataSource.Options.Classes.Add(classType);

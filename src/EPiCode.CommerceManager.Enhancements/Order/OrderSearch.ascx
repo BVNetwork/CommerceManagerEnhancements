@@ -117,29 +117,7 @@
 									
 							
 						</td>
-					</tr>
-                    <tr>
-                        <td class="auto-style1">
-							<asp:Literal ID="Literal6" runat="server" Text="Search on Created Date" />:
-						</td>
-						<td class="auto-style1">					
-                             <asp:CheckBox ID="SearchOnCreatedDate" runat="server" Checked="false"/>
-						</td>
-						<td class="auto-style2"></td>
-						<td class="auto-style1">
-						</td>
-						<td class="auto-style1">
-						
-						</td>
-						<td class="auto-style2"></td>
-                        <td></td>
-						<td class="auto-style1">
-					
-									
-						
-							
-						</td>
-                    </tr>
+					</tr>                 
                     <tr>
                         <td>Start Date:</td>
                         <td>
