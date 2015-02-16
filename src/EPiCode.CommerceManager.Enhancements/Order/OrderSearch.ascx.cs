@@ -264,7 +264,7 @@ namespace CommerceManagerEnhancements.Order
             }
             else if (!String.IsNullOrEmpty(OrderNumber.Text.Trim()) && ClassType.SelectedValue == "PurchaseOrder")
             {
-                sqlMetaWhereClause = String.Format("(TrackingNumber like '%{0}%')", ManagementHelper.MakeSafeSearchFilter(OrderNumber.Text.Trim()));
+                sqlMetaWhereClause = String.Format("(TrackingNumber like '{0}')", ManagementHelper.MakeSafeSearchFilter(OrderNumber.Text.Trim()).Replace("*","%"));
             }
 
             string status = OrderStatusList.SelectedValue;
@@ -289,7 +289,7 @@ namespace CommerceManagerEnhancements.Order
                 {
                     if (customerWhereClause.Length > 0)
                         customerWhereClause.Append(" OR ");
-                    customerWhereClause.AppendFormat(" CustomerName LIKE '%{0}%'", ManagementHelper.MakeSafeSearchFilter(keyword));
+                    customerWhereClause.AppendFormat(" CustomerName LIKE '{0}'", ManagementHelper.MakeSafeSearchFilter(keyword).Replace("*", "%"));
                 }
                 sqlWhereClause.AppendFormat(" AND ({0})", customerWhereClause);
             }
@@ -303,7 +303,7 @@ namespace CommerceManagerEnhancements.Order
 
             if (!string.IsNullOrEmpty(phone))
             {
-                orderAddressFilters.Add(string.Format("((DaytimePhoneNumber like '%{0}%') OR (EveningPhoneNumber like '%{0}%'))", phone));
+                orderAddressFilters.Add(string.Format("((DaytimePhoneNumber like '{0}') OR (EveningPhoneNumber like '{0}'))", phone).Replace("*", "%"));
                 useAddressFilter = true;
             }
 
@@ -311,7 +311,7 @@ namespace CommerceManagerEnhancements.Order
 
             if (!string.IsNullOrEmpty(mail))
             {
-                orderAddressFilters.Add(string.Format("Email like '%{0}%'", mail));
+                orderAddressFilters.Add(string.Format("Email like '{0}'", mail).Replace("*", "%"));
                 useAddressFilter = true;
             }
 
