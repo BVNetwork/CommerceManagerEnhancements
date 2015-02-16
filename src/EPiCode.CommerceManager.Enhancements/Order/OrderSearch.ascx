@@ -129,8 +129,7 @@
                         <td></td>
                         <td>End Date:</td>
                         <td><ecf:CalendarDatePicker runat="server" ID="EndDate" TimeDisplay="false" /></td>
-                    </tr>
-                    <tr>
+                    <td></td>
                         <td><asp:Button ID="btnSearch" runat="server" Width="100" Text="<%$ Resources:SharedStrings, Search %>" /></td>
                     </tr>
 				</table>
