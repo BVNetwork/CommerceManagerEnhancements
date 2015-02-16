@@ -21,7 +21,14 @@ namespace CommerceManagerEnhancements.Order.GridTemplates
 
                 if (latestNote != null)
                 {
-                    LatestOrderNote.Text = string.Format("{0}: {1}", latestNote.Title, latestNote.Detail);
+                    var noteText = string.Empty;
+
+                    if (!string.IsNullOrEmpty(latestNote.Title))
+                    {
+                        noteText += string.Format("{0}: ", latestNote.Title);
+                    }
+                    
+                    LatestOrderNote.Text = noteText + latestNote.Detail;
                 }
             }
         }    
