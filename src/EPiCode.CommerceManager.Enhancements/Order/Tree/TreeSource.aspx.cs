@@ -78,7 +78,7 @@ namespace CommerceManagerEnhancements.Order.Tree
         /// </summary>
         private void BindList()
         {
-            var markets = ServiceLocator.Current.GetInstance<IMarketService>().GetAllMarkets();
+            var markets = ServiceLocator.Current.GetInstance<IMarketService>().GetAllMarkets().Where(x=>x.IsEnabled);
 
             switch (ListType)
             {

@@ -151,7 +151,7 @@ namespace CommerceManagerEnhancements.Order
         {
             if (MarketFilterConfiguration.UseDropdownMarketFilter())
             {
-                var markets = MarketService.GetAllMarkets().ToList();
+                var markets = MarketService.GetAllMarkets().Where(x => x.IsEnabled).ToList();
                 markets.Insert(0, new MarketImpl(new MarketId("all")) {MarketName = "All Markets"});
                 Markets.DataSource = markets;
 
