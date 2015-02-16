@@ -8,6 +8,7 @@ using System.Web.UI.WebControls;
 using EPiServer.ServiceLocation;
 using Mediachase.BusinessFoundation;
 using Mediachase.Commerce.Customers;
+using Mediachase.Commerce.Manager.Apps.Customer.Primitives;
 using Mediachase.Commerce.Markets;
 using Mediachase.Commerce.Orders;
 using Mediachase.Commerce.Orders.DataSources;
@@ -85,7 +86,10 @@ namespace CommerceManagerEnhancements.Order
             DataRange.Items.Add(new ListItem(SharedStrings.All, ""));
             DataRange.Items.Add(new ListItem(SharedStrings.Today, "today"));
             DataRange.Items.Add(new ListItem(SharedStrings.This_Week, "thisweek"));
+            DataRange.Items.Add(new ListItem("Last 7 days", "last7days"));
             DataRange.Items.Add(new ListItem(SharedStrings.This_Month, "thismonth"));
+            DataRange.Items.Add(new ListItem("Last 30 days", "last30days"));
+            DataRange.Items.Add(new ListItem("Custom","custom"));
         
 
             MarketList.Items.Clear();
@@ -232,6 +236,42 @@ namespace CommerceManagerEnhancements.Order
                 endDate = nowDate;
                 applyDateFilter = true;
             }
+            else if (String.Compare(filterType, "last7days", true) == 0)
+            {
+                startDate = nowDate.AddDays(-7);
+                endDate = nowDate;
+                applyDateFilter = true;
+            }
+            else if (String.Compare(filterType, "last30days", true) == 0)
+            {
+                startDate = nowDate.AddDays(-30);
+                endDate = nowDate;
+                applyDateFilter = true;
+            }
+            else if (String.Compare(filterType, "custom", true) == 0)
+            {
+                if (StartDate.Value == DateTime.MinValue)
+                {
+                    StartDate.Value = DateTime.Today;
+                }
+
+                if (EndDate.Value == DateTime.MinValue)
+                {
+                    EndDate.Value = StartDate.Value;
+                }
+
+                startDate = StartDate.Value.Date;
+                endDate = EndDate.Value.Date;
+
+               
+
+                if (endDate == startDate)
+                {
+                    endDate = endDate.AddDays(1).AddMinutes(-1);
+                }
+
+                applyDateFilter = true;
+            }
             else
             {
                 applyDateFilter = false;
@@ -241,7 +281,10 @@ namespace CommerceManagerEnhancements.Order
 
             if (applyDateFilter)
             {
-                OrderListDataSource.Parameters.SqlMetaWhereClause = String.Format("META.Modified between '{0}' and '{1}'",
+                var metaField = SearchOnCreatedDate.Checked ? "META.Created" : "META.Modified";
+
+                OrderListDataSource.Parameters.SqlMetaWhereClause = String.Format("{0} between '{1}' and '{2}'",
+                                                                                  metaField,
                                                                                   startDate.ToUniversalTime().ToString("s"), 
                                                                                   endDate.ToUniversalTime().ToString("s"));
                 OrderListDataSource.Options.Classes.Add(classType);

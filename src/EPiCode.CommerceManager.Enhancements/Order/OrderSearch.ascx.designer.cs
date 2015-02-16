@@ -148,6 +148,15 @@ namespace CommerceManagerEnhancements.Order {
         protected global::System.Web.UI.WebControls.DropDownList DataRange;
         
         /// <summary>
+        /// SearchOnCreatedDate control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CheckBox SearchOnCreatedDate;
+        
+        /// <summary>
         /// MarketList control.
         /// </summary>
         /// <remarks>
@@ -164,6 +173,24 @@ namespace CommerceManagerEnhancements.Order {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox Phone;
+        
+        /// <summary>
+        /// StartDate control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::Mediachase.Commerce.Manager.Core.Controls.CalendarDatePicker StartDate;
+        
+        /// <summary>
+        /// EndDate control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::Mediachase.Commerce.Manager.Core.Controls.CalendarDatePicker EndDate;
         
         /// <summary>
         /// btnSearch control.

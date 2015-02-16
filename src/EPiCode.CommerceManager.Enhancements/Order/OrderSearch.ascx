@@ -2,6 +2,7 @@
 	CodeBehind="OrderSearch.ascx.cs" %>
 <%@ Register Src="../Core/Controls/EcfListViewControl.ascx" TagName="EcfListViewControl"
 	TagPrefix="core" %>
+<%@ Register Src="../Core/Controls/CalendarDatePicker.ascx" TagName="CalendarDatePicker" TagPrefix="ecf" %>
 <%@ Register TagPrefix="IbnWebControls" Namespace="Mediachase.BusinessFoundation" Assembly="Mediachase.BusinessFoundation, Version=8.7.1.466, Culture=neutral, PublicKeyToken=41d2e7a615ba286c" %>
 
 
@@ -27,7 +28,7 @@
 
 
 
-<IbnWebControls:McDock ID="DockTop" runat="server" Anchor="Top" EnableSplitter="False" DefaultSize="130">
+<IbnWebControls:McDock ID="DockTop" runat="server" Anchor="Top" EnableSplitter="False" DefaultSize="160">
     <DockItems>
    
      <asp:Panel runat="server" ID="pnlMain" DefaultButton="btnSearch" Height="130px" BackColor="#F8F8F8" BorderColor="Gray" BorderWidth="0">
@@ -97,6 +98,8 @@
 						<td class="auto-style1">
 							<asp:DropDownList ID="DataRange" Width="140" runat="server">
 							</asp:DropDownList>
+						    <br/><br/>
+                            <asp:CheckBox ID="SearchOnCreatedDate" runat="server" Checked="false"/> Use Created Date
 						</td>
 						<td class="auto-style2"></td>
 						<td class="auto-style1">
@@ -117,6 +120,16 @@
 							
 						</td>
 					</tr>
+                    <tr>
+                        <td>Start Date:</td>
+                        <td>
+                            <ecf:CalendarDatePicker runat="server" ID="StartDate" TimeDisplay="false" />
+                            
+                        </td>
+                        <td></td>
+                        <td>End Date:</td>
+                        <td><ecf:CalendarDatePicker runat="server" ID="EndDate" TimeDisplay="false" /></td>
+                    </tr>
                     <tr>
                         <td><asp:Button ID="btnSearch" runat="server" Width="100" Text="<%$ Resources:SharedStrings, Search %>" /></td>
                     </tr>

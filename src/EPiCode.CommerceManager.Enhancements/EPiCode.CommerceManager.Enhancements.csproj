@@ -35,6 +35,10 @@
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AjaxControlToolkit, Version=3.0.30930.28736, Culture=neutral, PublicKeyToken=28f01b0e84b6d53e, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\lib\AjaxControlToolkit.dll</HintPath>
+    </Reference>
     <Reference Include="EPiServer, Version=7.5.394.2, Culture=neutral, PublicKeyToken=8fe83dea738b45b7, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\lib\EPiServer.dll</HintPath>
@@ -128,6 +132,7 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Core\Controls\CalendarDatePicker.ascx" />
     <Content Include="Core\Controls\EcfListViewControl.ascx" />
     <Content Include="Order\Config\Grids\Orders-List.xml" />
     <Content Include="Order\Config\Grids\OrderSearch-List.xml">
