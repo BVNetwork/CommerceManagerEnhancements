@@ -396,8 +396,8 @@ namespace CommerceManagerEnhancements.Order
         void btnSearch_Click(object sender, EventArgs e)
         {
             if (StartDate.Value != DateTime.MinValue)
-            {
-                DataRange.SelectedValue = "custom";
+            {                
+                DataRange.SelectedIndex = DataRange.Items.Count - 1;
             }
 
 

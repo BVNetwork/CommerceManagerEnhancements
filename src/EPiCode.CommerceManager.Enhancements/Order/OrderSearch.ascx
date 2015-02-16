@@ -31,7 +31,7 @@
 <IbnWebControls:McDock ID="DockTop" runat="server" Anchor="Top" EnableSplitter="False" DefaultSize="160">
     <DockItems>
    
-     <asp:Panel runat="server" ID="pnlMain" DefaultButton="btnSearch" Height="130px" BackColor="#F8F8F8" BorderColor="Gray" BorderWidth="0">
+     <asp:Panel runat="server" ID="pnlMain" DefaultButton="btnSearch" Height="160px" BackColor="#F8F8F8" BorderColor="Gray" BorderWidth="0">
             <div id="DataForm">
                 <table cellpadding="0" style="background-color: #F8F8F8;" cellspacing="0">
                     <tr class="auto-style1 padding10">
