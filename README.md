@@ -6,6 +6,8 @@ Various enhancements to the Commerce Manager web site:
 * More date ranges for order lists
 * Order Notes shown in lists
 
+**Note!** All names appearing in these samples are fictitious. Any resemblance to real persons, living or dead, is purely coincidental.
+
 ## Installation
 On your Commerce Manager web site in Visual Studio, run the following command in the package manager console (the package is in the [EPiServer Nuget feed](http://nuget.episerver.com)): 
 ```
