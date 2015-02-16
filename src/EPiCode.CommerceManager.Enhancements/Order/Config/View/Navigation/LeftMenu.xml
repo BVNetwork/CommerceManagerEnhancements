@@ -39,12 +39,7 @@
 			</add>
 		</Tabs>
 		<Commands>
-			<add>
-        <Command id="cmdMarketsMarketList">
-          <CommandType>ClientAction</CommandType>
-          <ClientScript>CSManagementClient.ChangeView('Order', 'Orders-List', 'filter=all&amp;class=PurchaseOrder')</ClientScript>
-          <EnableHandler type="Mediachase.Commerce.Manager.CommandHandlers.PermissionEnableHandler, Mediachase.ConsoleManager" />
-        </Command>
+			<add>   
 				<Command id="cmdOrderSearch">
 					<CommandType>ClientAction</CommandType>
 					<ClientScript>CSManagementClient.ChangeView('Order', 'OrderSearch-List', 'class=PurchaseOrder')</ClientScript>
