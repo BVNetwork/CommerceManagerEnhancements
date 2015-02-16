@@ -395,6 +395,12 @@ namespace CommerceManagerEnhancements.Order
         /// <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
         void btnSearch_Click(object sender, EventArgs e)
         {
+            if (StartDate.Value != DateTime.MinValue)
+            {
+                DataRange.SelectedValue = "custom";
+            }
+
+
             _StartRowIndex = 0;
             InitDataSource(_StartRowIndex, _MaximumRows, true, MyListView.CurrentListView.SortExpression);
             MyListView.ResetPageNumber();

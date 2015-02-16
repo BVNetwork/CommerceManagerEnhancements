@@ -97,9 +97,7 @@
 						</td>
 						<td class="auto-style1">
 							<asp:DropDownList ID="DataRange" Width="140" runat="server">
-							</asp:DropDownList>
-						    <br/><br/>
-                            <asp:CheckBox ID="SearchOnCreatedDate" runat="server" Checked="false"/> Use Created Date
+							</asp:DropDownList>						   
 						</td>
 						<td class="auto-style2"></td>
 						<td class="auto-style1">
@@ -121,14 +119,36 @@
 						</td>
 					</tr>
                     <tr>
+                        <td class="auto-style1">
+							<asp:Literal ID="Literal6" runat="server" Text="Search on Created Date" />:
+						</td>
+						<td class="auto-style1">					
+                             <asp:CheckBox ID="SearchOnCreatedDate" runat="server" Checked="false"/>
+						</td>
+						<td class="auto-style2"></td>
+						<td class="auto-style1">
+						</td>
+						<td class="auto-style1">
+						
+						</td>
+						<td class="auto-style2"></td>
+                        <td></td>
+						<td class="auto-style1">
+					
+									
+						
+							
+						</td>
+                    </tr>
+                    <tr>
                         <td>Start Date:</td>
                         <td>
-                            <ecf:CalendarDatePicker runat="server" ID="StartDate" TimeDisplay="false" />
+                            <ecf:CalendarDatePicker runat="server" ID="StartDate" TimeDisplay="false" ValidationEnabled="False" />
                             
                         </td>
                         <td></td>
                         <td>End Date:</td>
-                        <td><ecf:CalendarDatePicker runat="server" ID="EndDate" TimeDisplay="false" /></td>
+                        <td><ecf:CalendarDatePicker runat="server" ID="EndDate" TimeDisplay="false" ValidationEnabled="False"/></td>
                     <td></td>
                         <td><asp:Button ID="btnSearch" runat="server" Width="100" Text="<%$ Resources:SharedStrings, Search %>" /></td>
                     </tr>
