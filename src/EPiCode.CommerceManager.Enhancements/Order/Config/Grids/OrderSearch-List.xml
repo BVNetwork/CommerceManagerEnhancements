@@ -5,18 +5,23 @@
             <add>
                 <Columns>
                     <Column columnType="CheckBox"/>
-                    <Column width="50"
+                    <Column width="80"
                             allowSorting="true"
                             dataField="OrderGroupId"
                             headingText="{SharedStrings:ID}"
-                            columnType="CustomTemplate">
+                            columnType="CustomTemplate"
+                            permissions="order:mng:view">
                         <Template id="LinkTemplate"
                                   controlUrl="GridTemplates/OrderLinkTemplate.ascx"></Template>
                     </Column>
-                    <Column width="200"
+                    <Column width="150"
                             allowSorting="true"
                             dataField="CustomerName"
-                            headingText="{SharedStrings:Customer}"></Column>
+                            headingText="{SharedStrings:Customer}"
+                            columnType="CustomTemplate">
+                        <Template id="CustomerTemplate"
+                                  controlUrl="GridTemplates/OrderCustomerTemplate.ascx"></Template>
+                    </Column>
                     <Column width="100"
                             allowSorting="true"
                             dataField="Total"
@@ -26,46 +31,46 @@
                             align="Right"></Column>
                     <Column width="100"
                             allowSorting="true"
-                            dataField="OrderGroupId"
+                            dataField="Status"
                             headingText="{SharedStrings:Status}"
-                            align="Center"
+                            Align="Center"
                             columnType="CustomTemplate">
                         <Template id="OrderStatusTemplate"
                                   controlUrl="GridTemplates/OrderStatusTemplate.ascx"></Template>
                     </Column>
-                          <Column width="200"
+                    <Column width="150"
                             columnType="DateTime"
                             allowSorting="true"
                             dataField="Created"
-                            headingText="Created"></Column>       
-                    <Column width="200"
+                            headingText="Created"></Column>
+                    <Column width="150"
                             columnType="DateTime"
                             allowSorting="false"
                             dataField="Modified"
                             headingText="{SharedStrings:Last_Modified}"></Column>
-                    <Column width="200"
+                    <Column width="100"
                             allowSorting="true"
                             dataField="MarketId"
                             headingText="Market"></Column>
-                  <Column width="200"
-                     allowSorting="false"
-                     dataField="OrderNotes"
-                     headingText="Latest Order Note"
-                     Align="Left"
-                     columnType="CustomTemplate">
-                    <Template id="OrderNoteTemplate"
-                              controlUrl="GridTemplates/OrderNoteTemplate.ascx"></Template>
-                  </Column>
                     <Column width="200"
-       allowSorting="false"
-       dataField="Shipping"
-       headingText="Warehouse"
-       Align="Left"
-       columnType="CustomTemplate">
+                       allowSorting="false"
+                       dataField="OrderNotes"
+                       headingText="Latest Order Note"
+                       Align="Left"
+                       columnType="CustomTemplate">
+                        <Template id="OrderNoteTemplate"
+                                  controlUrl="GridTemplates/OrderNoteTemplate.ascx"></Template>
+                    </Column>
+                    <Column width="100"
+             allowSorting="false"
+             dataField="Shipping"
+             headingText="Warehouse"
+             Align="Left"
+             columnType="CustomTemplate">
                         <Template id="WarehouseTemplate"
                                   controlUrl="GridTemplates/WarehouseTemplate.ascx"></Template>
                     </Column>
-                    <Column width="200"
+                    <Column width="100"
            allowSorting="false"
            dataField="ShippingMethod"
            headingText="Shipping"

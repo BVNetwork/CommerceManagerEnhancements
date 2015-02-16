@@ -14,7 +14,7 @@
                         <Template id="LinkTemplate"
                                   controlUrl="GridTemplates/OrderLinkTemplate.ascx"></Template>
                     </Column>
-                    <Column width="200"
+                    <Column width="150"
                             allowSorting="true"
                             dataField="CustomerName"
                             headingText="{SharedStrings:Customer}"
@@ -29,7 +29,7 @@
                             columnType="Currency"
                             currencyCodeField="BillingCurrency"
                             align="Right"></Column>
-                    <Column width="150"
+                    <Column width="100"
                             allowSorting="true"
                             dataField="Status"
                             headingText="{SharedStrings:Status}"
@@ -38,17 +38,17 @@
                         <Template id="OrderStatusTemplate"
                                   controlUrl="GridTemplates/OrderStatusTemplate.ascx"></Template>
                     </Column>
-                    <Column width="200"
+                    <Column width="150"
                             columnType="DateTime"
                             allowSorting="true"
                             dataField="Created"
                             headingText="Created"></Column>       
-                    <Column width="200"
+                    <Column width="150"
                             columnType="DateTime"
                             allowSorting="false"
                             dataField="Modified"
                             headingText="{SharedStrings:Last_Modified}"></Column>
-                    <Column width="200"                            
+                    <Column width="100"                            
                             allowSorting="true"
                             dataField="MarketId"
                             headingText="Market"></Column>
@@ -61,7 +61,7 @@
                         <Template id="OrderNoteTemplate"
                                   controlUrl="GridTemplates/OrderNoteTemplate.ascx"></Template>
                     </Column>
-                      <Column width="200"
+                      <Column width="100"
                allowSorting="false"
                dataField="Shipping"
                headingText="Warehouse"
@@ -70,7 +70,7 @@
                           <Template id="WarehouseTemplate"
                                     controlUrl="GridTemplates/WarehouseTemplate.ascx"></Template>
                   </Column>
-                    <Column width="200"
+                    <Column width="100"
            allowSorting="false"
            dataField="ShippingMethod"
            headingText="Shipping"
