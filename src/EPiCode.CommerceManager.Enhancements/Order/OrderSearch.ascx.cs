@@ -1,14 +1,10 @@
 using System;
 using System.Collections.Generic;
-using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
-using System.Web.UI;
 using System.Web.UI.WebControls;
 using EPiServer.ServiceLocation;
 using Mediachase.BusinessFoundation;
-using Mediachase.Commerce.Customers;
-using Mediachase.Commerce.Manager.Apps.Customer.Primitives;
 using Mediachase.Commerce.Markets;
 using Mediachase.Commerce.Orders;
 using Mediachase.Commerce.Orders.DataSources;
@@ -40,7 +36,10 @@ namespace CommerceManagerEnhancements.Order
             if (!IsPostBack || String.Compare(Request.Form["__EVENTTARGET"], CommandManager.GetCurrent(this.Page).ID, false) == 0)
             {
                 if (!IsPostBack)
+                {
                     MyListView.CurrentListView.PrimaryKeyId = EcfListView.MakePrimaryKeyIdString("OrderGroupId", "CustomerId");
+                    DataRange.SelectedValue = "today";
+                }
 
                 LoadDataAndDataBind();
                 DataBind();
@@ -199,10 +198,7 @@ namespace CommerceManagerEnhancements.Order
         /// <param name="returnTotalCount">if set to <c>true</c> [return total count].</param>
         /// <param name="orderByClause">The order by clause.</param>
         private void InitDataSource(int startRowIndex, int recordsCount, bool returnTotalCount, string orderByClause)
-        {
-           
-
-
+        {           
             MyListView.DataSourceID = OrderListDataSource.ID;
 
             //Now date in current time zone
