@@ -301,7 +301,7 @@ namespace CommerceManagerEnhancements.Order
             }
             else if (!String.IsNullOrEmpty(OrderNumber.Text.Trim()) && ClassType.SelectedValue == "PurchaseOrder")
             {
-                sqlMetaWhereClause = String.Format(" AND (TrackingNumber like '{0}')", ManagementHelper.MakeSafeSearchFilter(OrderNumber.Text.Trim()).Replace("*","%"));
+                sqlMetaWhereClause = String.Format(" (TrackingNumber like '{0}')", ManagementHelper.MakeSafeSearchFilter(OrderNumber.Text.Trim()).Replace("*","%"));
             }
 
             string status = OrderStatusList.SelectedValue;
