@@ -300,7 +300,7 @@ namespace CommerceManagerEnhancements.Order
             }
             else if (!String.IsNullOrEmpty(OrderNumber.Text.Trim()) && ClassType.SelectedValue == "PurchaseOrder")
             {
-                sqlMetaWhereClause = String.Format("(TrackingNumber like '{0}')", ManagementHelper.MakeSafeSearchFilter(OrderNumber.Text.Trim()).Replace("*","%"));
+                sqlMetaWhereClause = String.Format(" AND (TrackingNumber like '{0}')", ManagementHelper.MakeSafeSearchFilter(OrderNumber.Text.Trim()).Replace("*","%"));
             }
 
             string status = OrderStatusList.SelectedValue;
@@ -321,12 +321,18 @@ namespace CommerceManagerEnhancements.Order
             if (!String.IsNullOrEmpty(CustomerKeyword.Text))
             {
                 StringBuilder customerWhereClause = new StringBuilder();
-                foreach (string keyword in CustomerKeyword.Text.Split(' '))
-                {
-                    if (customerWhereClause.Length > 0)
-                        customerWhereClause.Append(" OR ");
-                    customerWhereClause.AppendFormat(" CustomerName LIKE '{0}'", ManagementHelper.MakeSafeSearchFilter(keyword).Replace("*", "%"));
-                }
+
+                customerWhereClause.AppendFormat(" CustomerName LIKE '{0}'", ManagementHelper.MakeSafeSearchFilter(CustomerKeyword.Text).Replace("*", "%"));
+                customerWhereClause.AppendFormat(" OR CustomerName LIKE '{0}'", ManagementHelper.MakeSafeSearchFilter(HttpUtility.HtmlEncode(CustomerKeyword.Text)).Replace("*", "%"));
+
+
+
+                //foreach (string keyword in CustomerKeyword.Text.Split(' '))
+                //{
+                //    if (customerWhereClause.Length > 0)
+                //        customerWhereClause.Append(" OR ");
+                //    customerWhereClause.AppendFormat(" CustomerName LIKE '{0}'", ManagementHelper.MakeSafeSearchFilter(keyword).Replace("*", "%"));
+                //}
                 sqlWhereClause.AppendFormat(" AND ({0})", customerWhereClause);
             }
 

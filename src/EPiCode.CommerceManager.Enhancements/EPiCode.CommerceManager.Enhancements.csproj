@@ -146,9 +146,7 @@
     <Content Include="Order\GridTemplates\OrderNoteTemplate.ascx" />
     <Content Include="Order\OrderList.ascx" />
     <Content Include="Order\OrderSearch.ascx" />
-    <Content Include="Order\Tree\TreeSource.aspx">
-      <SubType>ASPXCodeBehind</SubType>
-    </Content>
+    <Content Include="Order\Tree\TreeSource.aspx" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="App_GlobalResources\SharedStrings.da.resx" />

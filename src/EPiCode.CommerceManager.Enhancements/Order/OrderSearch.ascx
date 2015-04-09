@@ -3,7 +3,7 @@
 <%@ Register Src="../Core/Controls/EcfListViewControl.ascx" TagName="EcfListViewControl"
 	TagPrefix="core" %>
 <%@ Register Src="../Core/Controls/CalendarDatePicker.ascx" TagName="CalendarDatePicker" TagPrefix="ecf" %>
-<%@ Register TagPrefix="IbnWebControls" Namespace="Mediachase.BusinessFoundation" Assembly="Mediachase.BusinessFoundation, Version=8.7.1.466, Culture=neutral, PublicKeyToken=41d2e7a615ba286c" %>
+<%@ Register TagPrefix="IbnWebControls" Namespace="Mediachase.BusinessFoundation" Assembly="Mediachase.BusinessFoundation" %>
 
 
 <%@ Register tagPrefix="orders" namespace="Mediachase.Commerce.Orders.DataSources" assembly="Mediachase.Commerce" %>
