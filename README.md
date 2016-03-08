@@ -1,3 +1,5 @@
+**Note!** With the release of Episerver Commerce 9.10.0, these features are mostly added to the core installation of Commerce Manager and with that makes this package obsolete.
+
 # Enhancements for EPiServer Commerce Manager
 Various enhancements to the Commerce Manager web site:
 * Improved Order Search with wildcard support for order and customer data
