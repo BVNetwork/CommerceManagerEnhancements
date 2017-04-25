@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+	<metadata>
+		<id>EPiCode.CommerceManager.Credit.Enhancements</id>
+		<version>0.5.2</version>
+		<title>EPiServer Commerce Manager Credit Enhancements</title>
+		<authors>BV Network</authors>
+		<projectUrl>https://github.com/BVNetwork/CommerceManagerCreditEnhancements</projectUrl>
+		<iconUrl>http://www.coderesort.com/favicon.ico</iconUrl>
+		<requireLicenseAcceptance>false</requireLicenseAcceptance>
+		<description>Various enhancments to the Commerce Manager web site, like impoved order search and lists. See https://github.com/BVNetwork/CommerceManagerEnhancements for more documentation. Modified for Varner</description>
+	</metadata>
+	<files>
+    <file src="Order\**\*.xdt" target="Content\net452\Apps\Order\"/>
+    <file src="Order\**\*.xml" target="Content\net452\Apps\Order\"/>
+    <file src="Order\**\*.ascx" target="Content\net452\Apps\Order\"/>
+    <file src="Order\**\*.png" target="Content\net452\Apps\Order\"/>
+    <file src="bin\EPiCode.CommerceManager.Credit.Enhancements.dll" target="lib\net452\EPiCode.CommerceManager.Credit.Enhancements.dll" />
+	</files>
+</package>

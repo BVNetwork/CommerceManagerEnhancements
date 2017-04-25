@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<View xmlns="http://schemas.mediachase.com/ecf/view" xmlns:xdt="http://schemas.microsoft.com/XML-Document-Transform">
+	<Form>
+		<Toolbars>
+			<add>
+				<Toolbar placeName="OrderView" xdt:Locator="Match(placeName)" >
+          <Button id="CreditLineItems" text="Credit Line Items" commandName="cmdCreditLineItems" imageUrl="~/Apps/Order/images/money.png" permissions="order:mng:edit" xdt:Locator="Match(id)" xdt:Transform="Remove"/>          
+        </Toolbar>
+			</add>
+		</Toolbars>
+		<Commands>
+			<add>
+        <Command id="cmdCreditLineItems" xdt:Locator="Match(id)" xdt:Transform="Remove">
+          <CommandType>OpenFrameModalPopup</CommandType>
+          <PopupTitle>Credit Line Items</PopupTitle>
+          <Url>~/Apps/Core/Controls/DialogPage.aspx?_a=Order&amp;_v=CreditLineItems&amp;OrderGroupId={HttpContext:OrderGroupId}</Url>
+          <Width>900</Width>
+          <Height>450</Height>
+          <Left>50</Left>
+          <Top>40</Top>
+          <Drag>True</Drag>
+          <AutoHeightResize>true</AutoHeightResize>
+          <EnableHandler type="CommerceManagerCreditEnhancements.CommandHandlers.CreditLineItemEnableHandler, EPiCode.CommerceManager.Credit.Enhancements" />
+        </Command>
+			</add>
+		</Commands>
+	</Form>
+</View>

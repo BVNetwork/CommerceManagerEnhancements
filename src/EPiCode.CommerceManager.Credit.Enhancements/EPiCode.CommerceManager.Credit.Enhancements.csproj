@@ -1,0 +1,155 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{DA1BF0A5-95AC-446D-BF2C-A088B205B5C0}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>CommerceManagerCreditEnhancements</RootNamespace>
+    <AssemblyName>EPiCode.CommerceManager.Credit.Enhancements</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\..\</SolutionDir>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'DebugCompileView|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="CommandHandlers\CreditLineItemEnableHandler.cs" />
+    <Compile Include="DTO\CreditItem.cs" />
+    <Compile Include="Services\ServiceResult.cs" />
+    <Compile Include="Helpers\OrderSessionManager.cs" />
+    <Compile Include="Order\Modules\CreditLineItems.ascx.cs">
+      <DependentUpon>CreditLineItems.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Order\Modules\CreditLineItems.ascx.designer.cs">
+      <DependentUpon>CreditLineItems.ascx.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\CreditService.cs" />
+    <Compile Include="Services\ICreditService.cs" />
+    <Compile Include="Validators\IDiscountValidator.cs" />
+    <Compile Include="Workflows\OrderGoodwillCreditWorkflow.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="EPiCode.CommerceManager.Credit.Enhancements.nuspec">
+      <SubType>Designer</SubType>
+    </Content>
+    <None Include="Order\Config\View\Forms\PurchaseOrder-ObjectView.xml.uninstall.xdt">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Order\Config\View\ControlViews\CreditLineItems.xml" />
+    <None Include="Order\Config\View\Forms\PurchaseOrder-ObjectView.xml.install.xdt">
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="Order\images\money.png" />
+    <Content Include="Order\Modules\CreditLineItems.ascx" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Reference Include="EPiServer, Version=9.12.3.0, Culture=neutral, PublicKeyToken=8fe83dea738b45b7, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\lib\EPiServer.dll</HintPath>
+    </Reference>
+    <Reference Include="EPiServer.Framework, Version=9.0.1.0, Culture=neutral, PublicKeyToken=8fe83dea738b45b7, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\lib\EPiServer.Framework.dll</HintPath>
+    </Reference>
+    <Reference Include="Mediachase.BusinessFoundation, Version=9.0.0.1125, Culture=neutral, PublicKeyToken=41d2e7a615ba286c, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\lib\Mediachase.BusinessFoundation.dll</HintPath>
+    </Reference>
+    <Reference Include="Mediachase.Commerce, Version=9.0.0.1125, Culture=neutral, PublicKeyToken=6e58b501b34abce3, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\lib\Mediachase.Commerce.dll</HintPath>
+    </Reference>
+    <Reference Include="Mediachase.Commerce.Workflow, Version=9.0.0.1125, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\lib\Mediachase.Commerce.Workflow.dll</HintPath>
+    </Reference>
+    <Reference Include="Mediachase.ConsoleManager, Version=9.0.0.1125, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\lib\Mediachase.ConsoleManager.dll</HintPath>
+    </Reference>
+    <Reference Include="Mediachase.MetaDataPlus, Version=9.0.0.1125, Culture=neutral, PublicKeyToken=41d2e7a615ba286c, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\lib\Mediachase.MetaDataPlus.dll</HintPath>
+    </Reference>
+    <Reference Include="Mediachase.WebConsoleLib, Version=9.0.0.1125, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\lib\Mediachase.WebConsoleLib.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Helpers, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.2.0.20710.0\lib\net40\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.4.0.20710.0\lib\net40\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Razor.2.0.20710.0\lib\net40\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.2.0.20710.0\lib\net40\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.2.0.20710.0\lib\net40\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.2.0.20710.0\lib\net40\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml" />
+    <Reference Include="Validators, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\EPiServer.CommerceManager.9.0.0\lib\net45\Validators.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!--<Target Name="CreateAddOnPackage">
+    <Exec Command="..\.nuget\nuget pack EPiCode.CommerceManager.Credit.Enhancements.csproj -OutputDirectory $(OutputPath)" />
+  </Target>
+  <Target Name="AfterBuild" DependsOnTargets="CreateAddOnPackage">
+  </Target>-->
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
