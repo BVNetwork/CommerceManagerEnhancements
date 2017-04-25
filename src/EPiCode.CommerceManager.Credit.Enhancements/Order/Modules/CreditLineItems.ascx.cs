@@ -210,27 +210,31 @@ namespace CommerceManagerCreditEnhancements.Order.Modules
             GridViewRow row = LineItemGridView.Rows[e.RowIndex];
             bool validDiscount = false;
 
-            decimal discount = Decimal.Parse(((TextBox)(row.FindControl("ExtraDiscount"))).Text);
-            string code = (string)dt.Rows[row.DataItemIndex][CODE];
-            long id = (long) dt.Rows[row.DataItemIndex][LINE_ITEM_ID];
+            decimal discount = 0;
 
-            if (code == "shipment")
+            if (Decimal.TryParse(((TextBox) row.FindControl("ExtraDiscount")).Text, out discount))
             {
-                var shipment = CurrentOrder.OrderForms[0].Shipments.FirstOrDefault(x => x.ShipmentId == id);
-                if (_validator.Service.IsShippingDiscountValid(shipment, discount))
+
+                string code = (string) dt.Rows[row.DataItemIndex][CODE];
+                long id = (long) dt.Rows[row.DataItemIndex][LINE_ITEM_ID];
+
+                if (code == "shipment")
                 {
-                    validDiscount = true;
+                    var shipment = CurrentOrder.OrderForms[0].Shipments.FirstOrDefault(x => x.ShipmentId == id);
+                    if (_validator.Service.IsShippingDiscountValid(shipment, discount))
+                    {
+                        validDiscount = true;
+                    }
+                }
+                else
+                {
+                    var lineItem = CurrentOrder.OrderForms[0].LineItems.FirstOrDefault(x => x.LineItemId == id);
+                    if (_validator.Service.IsLineItemDiscountValid(lineItem, discount))
+                    {
+                        validDiscount = true;
+                    }
                 }
             }
-            else
-            {
-                var lineItem = CurrentOrder.OrderForms[0].LineItems.FirstOrDefault(x => x.LineItemId == id);
-                if (_validator.Service.IsLineItemDiscountValid(lineItem, discount))
-                {
-                    validDiscount = true;
-                }
-            }
-
 
             if (validDiscount)
             {
