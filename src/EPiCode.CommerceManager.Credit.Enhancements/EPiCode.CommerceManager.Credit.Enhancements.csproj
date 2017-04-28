@@ -63,12 +63,10 @@
     <Compile Include="Workflows\OrderGoodwillCreditWorkflow.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="EPiCode.CommerceManager.Credit.Enhancements.nuspec">
-      <SubType>Designer</SubType>
-    </Content>
     <None Include="Order\Config\View\Forms\PurchaseOrder-ObjectView.xml.uninstall.xdt">
       <SubType>Designer</SubType>
     </None>
+    <None Include="package.nuspec" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Order\Config\View\ControlViews\CreditLineItems.xml" />
