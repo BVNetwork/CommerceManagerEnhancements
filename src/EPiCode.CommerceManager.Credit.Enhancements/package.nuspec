@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
 	<metadata>
 		<id>EPiCode.CommerceManager.Credit.Enhancements</id>
-		<version>0.5.4-beta</version>
+		<version>0.5.20-beta</version>
 		<title>EPiServer Commerce Manager Credit Enhancements</title>
 		<authors>BV Network</authors>
 		<projectUrl>https://github.com/BVNetwork/CommerceManagerCreditEnhancements</projectUrl>

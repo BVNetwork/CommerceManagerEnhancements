@@ -2,6 +2,16 @@
 
 <View xmlns="http://schemas.mediachase.com/ecf/view" xmlns:xdt="http://schemas.microsoft.com/XML-Document-Transform">
 	<Form>
+    <Grids>
+      <add>
+        <Grid placeName="OrderLineItem-List">
+          <Columns>
+            <Column width="200" allowSorting="false" dataField="LineItemId" headingText="ArticleNumber" columnType="CustomTemplate" xdt:Locator="Match(headingText)" xdt:Transform="Remove">
+            </Column>
+          </Columns>
+        </Grid>
+      </add>
+    </Grids>
 		<Toolbars>
 			<add>
 				<Toolbar placeName="OrderView" xdt:Locator="Match(placeName)" >

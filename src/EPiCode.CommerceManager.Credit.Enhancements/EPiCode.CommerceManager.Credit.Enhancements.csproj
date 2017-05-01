@@ -47,6 +47,13 @@
   <ItemGroup>
     <Compile Include="CommandHandlers\CreditLineItemEnableHandler.cs" />
     <Compile Include="DTO\CreditItem.cs" />
+    <Compile Include="Order\GridTemplates\ArticleNumberTemplate.ascx.cs">
+      <DependentUpon>ArticleNumberTemplate.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Order\GridTemplates\ArticleNumberTemplate.ascx.designer.cs">
+      <DependentUpon>ArticleNumberTemplate.ascx.cs</DependentUpon>
+    </Compile>
     <Compile Include="Services\ServiceResult.cs" />
     <Compile Include="Helpers\OrderSessionManager.cs" />
     <Compile Include="Order\Modules\CreditLineItems.ascx.cs">
@@ -73,6 +80,7 @@
     <None Include="Order\Config\View\Forms\PurchaseOrder-ObjectView.xml.install.xdt">
       <SubType>Designer</SubType>
     </None>
+    <Content Include="Order\GridTemplates\ArticleNumberTemplate.ascx" />
     <Content Include="Order\images\money.png" />
     <Content Include="Order\Modules\CreditLineItems.ascx" />
   </ItemGroup>
